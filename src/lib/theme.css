@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  /* * LIGHT MODE: "The Field Map"
+   * Concept: A physical topographic map spread on a table.
+   * Colors: Paper, Silt, River Water, Limestone.
+   */
+  
+  /* Warm Paper / Sand Background */
+  --background: oklch(0.97 0.02 95); 
+  
+  /* Dark Peat / Loam Text (Softer than black) */
+  --foreground: oklch(0.25 0.04 110); 
+  
+  /* River Teal (Combines Water + Nature) - Strong accent */
+  --primary: oklch(0.48 0.18 190); 
+  
+  /* Muted Earth / Clay */
+  --secondary: oklch(0.65 0.08 60); 
+  
+  /* Mist / Limestone */
+  --muted: oklch(0.88 0.03 95);
+  
+  /* Contour Line Gray */
+  --border: oklch(0.85 0.03 95);
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+.dark {
+  /* * DARK MODE: "The Night Ecosystem"
+   * Concept: Satellite imagery at night or deep ocean depth.
+   * Colors: Deep Forest/Slate, Bioluminescence, Pale Sand.
+   */
+  
+  /* Deep Forest Night / Dark Slate */
+  --background: oklch(0.14 0.03 180); 
+  
+  /* Pale Sand / Sea Foam */
+  --foreground: oklch(0.92 0.02 100);
+  
+  /* Electric Spring Green (Agriculture/Growth) */
+  --primary: oklch(0.72 0.18 145); 
+  
+  /* Muted Moss */
+  --secondary: oklch(0.50 0.06 140);
+  
+  /* Deep Water Shadow */
+  --muted: oklch(0.20 0.04 180);
+  
+  /* Dark Bark / Rock */
+  --border: oklch(0.25 0.04 180);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utilities */
+.tracking-widest-2 { letter-spacing: 0.2em; }
+
+.mapboxgl-canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Floating globe background fix */
+:global(.mapboxgl-canvas),
+:global(.mapboxgl-map) {
+  background-color: transparent !important;
+}
