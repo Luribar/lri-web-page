@@ -6,7 +6,10 @@
   import Skills from '$lib/sections/Skills.svelte';
   import JourneyMap from '$lib/sections/JourneyMap.svelte';
   
-  // Import the store to control the modal
+  // 1. Import the component itself (the visual part)
+  import ContactModal from '$lib/components/ContactModal.svelte'; 
+  
+  // 2. Import the store (the "brain" that tells it when to open)
   import { isContactOpen } from '$lib/stores/contactStore';
 </script>
 
@@ -27,6 +30,8 @@
         <JourneyMap />
     </section>
 </main>
+
+<ContactModal />
 
 <footer class="w-full bg-background border-t border-border py-12 px-6 mt-24 transition-colors duration-500">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -64,7 +69,6 @@
 </footer>
 
 <style>
-  /* Ensure smooth scrolling when clicking Nav links */
   :global(html) {
     scroll-behavior: smooth;
   }

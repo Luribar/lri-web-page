@@ -18,9 +18,10 @@
         center: [-35, 15] as [number, number] 
     };
 
+    // FIXED: Both colors are now set to green variants
     const THEMES = {
-        light: { lineColor: "#0d9488", opacity: 0.8 },
-        dark: { lineColor: "#4ade80", opacity: 0.8 } 
+        light: { lineColor: "#16a34a", opacity: 0.8 }, // Emerald Green
+        dark: { lineColor: "#4ade80", opacity: 0.8 }   // Neon Green
     };
 
     onMount(() => {
@@ -44,6 +45,8 @@
 
         map.on('style.load', () => {
             if (!map) return;
+            
+            // Clean up default layers
             const layers = map.getStyle().layers;
             if (layers) {
                 layers.forEach((layer) => {
@@ -52,13 +55,15 @@
                     }
                 });
             }
+
             map.setFog({
                 'color': 'rgba(0, 0, 0, 0)', 'high-color': 'rgba(0, 0, 0, 0)',
                 'space-color': 'rgba(0, 0, 0, 0)', 'star-intensity': 0
             });
+
+            // Initialize route and immediately force theme application
             setupRoute();
-            const currentDark = document.documentElement.classList.contains('dark');
-            applyTheme(currentDark);
+            applyTheme(document.documentElement.classList.contains('dark'));
         });
 
         let time = 0;
@@ -85,6 +90,11 @@
 
     function setupRoute() {
         if (!map) return;
+        
+        // Check current theme to set initial color properly
+        const isDark = document.documentElement.classList.contains('dark');
+        const theme = isDark ? THEMES.dark : THEMES.light;
+
         map.addSource('route', {
             'type': 'geojson',
             'data': {
@@ -96,13 +106,20 @@
                 }
             }
         });
+
         map.addLayer({
             'id': 'route',
             'type': 'line',
             'source': 'route',
             'layout': { 'line-join': 'round', 'line-cap': 'round' },
-            'paint': { 'line-width': 2, 'line-dasharray': [1, 2] }
+            'paint': { 
+                'line-width': 2, 
+                'line-dasharray': [1, 2],
+                'line-color': theme.lineColor, // Force color on creation
+                'line-opacity': theme.opacity
+            }
         });
+
         addLabel(COORDS.santiago, "FROM", "Santiago", 'left');
         addLabel(COORDS.netherlands, "BASE", "Netherlands", 'right');
     }
@@ -110,6 +127,7 @@
     function applyTheme(isDark: boolean) {
         if (!map || !map.isStyleLoaded()) return;
         const theme = isDark ? THEMES.dark : THEMES.light;
+        
         if (map.getLayer('route')) {
             map.setPaintProperty('route', 'line-color', theme.lineColor);
             map.setPaintProperty('route', 'line-opacity', theme.opacity);
@@ -149,14 +167,6 @@
     </div>
     
     <div class="relative z-20 flex flex-col items-start gap-8 max-w-2xl pointer-events-auto"> 
-        <div class="flex items-center gap-3">
-            <div class="relative h-2 w-2">
-                <div class="absolute inset-0 animate-ping rounded-full bg-primary opacity-75"></div>
-                <div class="relative h-2 w-2 rounded-full bg-primary"></div>
-            </div>
-            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">System Online</span>
-        </div>
-
         <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-bold leading-[0.9] tracking-tight text-foreground drop-shadow-xl">
             LUCAS<br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground/50">RIVERO IRIBARNE.</span>
