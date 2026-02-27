@@ -5,7 +5,7 @@
     let name = $state('');
     let email = $state('');
     let message = $state('');
-    let botcheck = $state(''); // The Honeypot trap
+    let botcheck = $state('');
     
     let sending = $state(false);
     let success = $state(false);
@@ -28,17 +28,23 @@
         errorMessage = '';
 
         try {
+            // Fetch to YOUR secure backend, not a 3rd party
             const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message, botcheck }),
+                body: JSON.stringify({ 
+                    name, 
+                    email, 
+                    message, 
+                    botcheck // Honeypot trap
+                }),
             });
 
             const result = await response.json();
             
             if (result.success) {
                 success = true;
-                setTimeout(close, 3000); // Close automatically after 3 seconds
+                setTimeout(close, 3000);
             } else {
                 errorMessage = result.message || "Failed to send message.";
             }

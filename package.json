@@ -38,6 +38,7 @@
         "vite": "^7.2.6"
     },
     "dependencies": {
-        "mapbox-gl": "^3.17.0"
+        "mapbox-gl": "^3.17.0",
+        "resend": "^6.9.2"
     }
 }
