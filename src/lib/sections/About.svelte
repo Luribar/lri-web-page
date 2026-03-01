@@ -36,33 +36,28 @@
                     <h3 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-foreground">
                         I'm <span class="text-primary">Lucas Rivero Iribarne</span>.
                     </h3>
-                    <p class="mt-4 text-lg text-muted-foreground leading-relaxed">
-                        Agricultural Engineer turned Data Engineer. I build models to understand complex systems, forecast trends, and drive data-informed decisions.
+                    <p class="mt-4 text-lg text-muted-foreground leading-relaxed text-justify">
+                        Agricultural Engineer turned Data Engineer. <span class="text-foreground font-semibold">My goal:</span> develop data-driven solutions to confront incoming global change impacts using geographic information systems, remote sensing, scripting, in situ sensors, data science and Big Data techniques.
                     </p>
                     <div class="mt-6 h-[2px] w-12 bg-primary/40 mx-auto lg:mx-0"></div>
                 </div>
             </div>
 
-            <div class="lg:w-7/12 space-y-8 text-base md:text-lg leading-relaxed text-muted-foreground">
+            <div class="lg:w-7/12 space-y-8 text-base md:text-lg leading-relaxed text-muted-foreground text-justify">
                 
                 <p>
-                    My journey began in <span class="text-foreground font-semibold">Agricultural Engineering</span>, driven by a curiosity about how plant physiology adapts to a changing climate. I cut my teeth on projects spanning agricultural and natural systems—from modeling water flow in avocado plantations using remote sensing to monitoring watershed hydrology under climate stress.
+                    I studied agricultural engineering, motivated by learning how plant species work and how they are affected by climate change. Since then, I have been involved in many projects related to both agricultural and natural systems, first doing my bachelor's thesis using remote sensing tools and water balance modelling to compute crop coefficients in avocado plantations, and then as a research assistant in projects related to watershed hydrology, monitoring ecosystems that are being modulated both by climate change impacts and human impacts.
                 </p>
 
                 <p>
-                    In <span class="text-foreground font-mono font-medium">2022</span>, I relocated to the Netherlands to pursue a Master's in Geo-Information Science at Wageningen. There, I deepened my expertise in both physical and statistical modeling. My goal was clear: develop data-driven solutions to confront global change using a robust tech stack—<span class="italic text-foreground/80">GIS, Python, in-situ sensors, and Big Data analytics.</span>
+                    In 2022, I relocated to the Netherlands to do a Master's in Geo-Information Science at Wageningen University. There, I deepened my expertise in physical and statistical modelling of agro and ecosystems.
                 </p>
 
                 <p>
-                    Currently, I am a <strong class="text-foreground font-semibold">Data Engineer</strong> at 
-                    <a class="text-primary hover:text-primary/80 underline decoration-primary/20 underline-offset-4 transition-all" href="https://www.beyondsports.nl" target="_blank" rel="noopener noreferrer">Bunge</a>.
-                </p>
-                
-                <p>
-                    I live in Utrecht with my partner. When I'm away from the keyboard, you can find me bouldering, practicing yoga, or learning French.
+                    Currently, I live in Utrecht with my partner Emi. When I'm away from the keyboard, you can find me bouldering, practicing yoga, or learning French.
                 </p>
 
             </div>
         </div>
     </div>
-</section>
+</section>  

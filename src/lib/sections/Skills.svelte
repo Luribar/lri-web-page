@@ -11,13 +11,15 @@
     desc: string;
     icon: string;
     stack: StackItem[];
+    spanClass: string; 
   }
 
   let skills: Skill[] = [
     { 
       name: 'Programming', 
-      desc: 'Core language for analysis and automation.', 
+      desc: 'I used R for Remote Sensing applications and in situ sensors data processing. Now I use Python for everything, from building data pipelines to orchestration and data processing.', 
       icon: 'M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 18', 
+      spanClass: 'col-span-1 md:col-span-1 lg:col-span-2', 
       stack: [
         { name: 'Python', url: 'https://cdn.simpleicons.org/python/3776AB' },
         { name: 'R', url: 'https://cdn.simpleicons.org/r/276DC3' }
@@ -25,54 +27,66 @@
     },
     { 
       name: 'Backend & Cloud', 
-      desc: 'Scalable data infrastructure and pipelines.', 
+      desc: 'To keep the backend running I have used Postgres, Google Cloud Platform, and Docker. Not an expert yet, but getting there.', 
       icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+      spanClass: 'col-span-1 md:col-span-1 lg:col-span-2',
       stack: [
         { name: 'PostgreSQL', url: 'https://cdn.simpleicons.org/postgresql/4169E1' },
-        { name: 'dbt', url: 'https://cdn.simpleicons.org/dbt/FF694B' },
-        { name: 'AWS', url: 'https://cdn.simpleicons.org/amazonwebservices/232F3E' },
         { name: 'GCP', url: 'https://cdn.simpleicons.org/googlecloud/4285F4' },
-        { name: 'Linux', url: 'https://cdn.simpleicons.org/linux/FCC624' },
+        { name: 'Linux', url: 'https://api.iconify.design/logos:linux-tux.svg' },
         { name: 'Docker', url: 'https://cdn.simpleicons.org/docker/2496ED' }
       ]
     },
     { 
-      name: 'Frontend', 
-      desc: 'Building interactive geospatial dashboards.', 
-      icon: 'M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
-      stack: [
-        { name: 'Svelte', url: 'https://cdn.simpleicons.org/svelte/FF3E00' },
-        { name: 'Tailwind', url: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
-        { name: 'HTML5', url: 'https://cdn.simpleicons.org/html5/E34F26' },
-        { name: 'JavaScript', url: 'https://cdn.simpleicons.org/javascript/F7DF1E' }
-      ]
-    },
-    { 
       name: 'GIS & Remote Sensing', 
-      desc: 'Spatial analysis, modeling & raster processing.', 
+      desc: 'I have been using geospatial data since my bachelor onwards, from spectral indices, time series, and processing weather and satellite data and to spatialize ecohyodological and crop growth models models. Now I would be able to handle larger amounts of data with the Data Engineering knowledge!', 
       icon: 'M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z', 
+      spanClass: 'col-span-1 md:col-span-1 lg:col-span-2',
       stack: [
         { name: 'QGIS', url: 'https://cdn.simpleicons.org/qgis/589632' },
-        { name: 'PostGIS', url: 'https://cdn.simpleicons.org/postgis/336791' },
-        { name: 'GDAL', url: 'https://cdn.simpleicons.org/gdal/003C30' }
+        { name: 'PostGIS', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Logo_square_postgis.png' },
+        { name: 'GDAL', url: 'https://upload.wikimedia.org/wikipedia/commons/d/df/GDALLogoColor.svg' },
+        { name: 'GRASS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Grass_GIS.png' },
       ]
     },
     { 
       name: 'In-situ Monitoring', 
-      desc: 'Sensor calibration, field survey & telemetry.', 
+      desc: 'Sensor calibration, deployment, and monitoring in diverse ecosystems (rain gauges, soil moisture, water level sensors, soil pits, leaf area index). Biomass field surveys. Leading field campaigns.', 
       icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z', 
+      spanClass: 'col-span-1 md:col-span-1 lg:col-span-2',
       stack: [
-        // Using Iconify (Lucide set) for generic hardware icons
-        { name: 'Sensors', url: 'https://api.iconify.design/lucide:activity.svg?color=%2372ef91' },
-        { name: 'Telemetry', url: 'https://api.iconify.design/lucide:radio.svg?color=%2372ef91' },
-        { name: 'Raspberry Pi', url: 'https://cdn.simpleicons.org/raspberrypi/C51A4A' },
-        { name: 'Arduino', url: 'https://cdn.simpleicons.org/arduino/00878F' }
+        { name: 'Pickup Truck', url: 'https://api.iconify.design/mdi:truck-pickup.svg?color=%23ef4444' },
+        { name: 'Soil Pit', url: 'https://api.iconify.design/mdi:shovel.svg?color=%238b4513' },
+        { name: 'Rain Gauge', url: 'https://api.iconify.design/carbon:rain-drop.svg?color=%233b82f6' },
+        { name: 'Soil Moisture', url: 'https://api.iconify.design/carbon:soil-moisture-field.svg?color=%2310b981' },
+        { name: 'Leaf Area Index', url: 'https://api.iconify.design/lucide:leaf.svg?color=%2322c55e' },
+        { name: 'Time Series', url: 'https://api.iconify.design/lucide:line-chart.svg?color=%238b5cf6' }
       ] 
     },
     { 
+      name: 'Ecohydrological Modeling', 
+      desc: 'I have used water flow models to simulate water and carbon balance at different scales, such soil profile level (HYDRUS 1D), field level (SWAP and WOFOST), hydrological catchment (SWAT+) and regional level (WOFOST/Remote Sensing/GIS).',
+      icon: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z', 
+      spanClass: 'col-span-1 md:col-span-2 lg:col-span-2', 
+      stack: [
+        { name: 'Water Balance', url: 'https://api.iconify.design/lucide:droplets.svg?color=%230ea5e9' },
+        { name: 'Crop Growth', url: 'https://api.iconify.design/lucide:wheat.svg?color=%23eab308' }
+      ] 
+    },
+    { 
+      name: 'Frontend', 
+      desc: 'Basic knowledge. Built this site with Svelte (with AI help).', 
+      icon: 'M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
+      spanClass: 'col-span-1 md:col-span-1 lg:col-span-1', 
+      stack: [
+        { name: 'Svelte', url: 'https://cdn.simpleicons.org/svelte/FF3E00' },
+      ]
+    },
+    { 
       name: 'Languages', 
-      desc: 'Global communication & collaboration.', 
+      desc: 'Global communication.', 
       icon: 'M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418', 
+      spanClass: 'col-span-1 md:col-span-1 lg:col-span-1', 
       stack: [
         { name: 'Spanish', text: 'Native', url: 'https://flagcdn.com/w80/cl.png', isFlag: true },
         { name: 'English', text: 'Proficient', url: 'https://flagcdn.com/w80/gb.png', isFlag: true },
@@ -101,10 +115,10 @@
         </h2>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {#each skills as skill}
         <div class="group relative rounded-2xl p-8 border border-border bg-muted/10 backdrop-blur-sm transition-all duration-500
-          hover:border-primary/30 hover:shadow-[0_20px_50px_-20px_rgba(var(--primary-rgb),0.15)] flex flex-col justify-between h-full min-h-[260px]">
+          hover:border-primary/30 hover:shadow-[0_20px_50px_-20px_rgba(var(--primary-rgb),0.15)] flex flex-col justify-between h-full min-h-[260px] {skill.spanClass}">
           
           <div class="relative z-10">
               <div class="flex items-center justify-between mb-8">
@@ -116,7 +130,8 @@
               </div>
               
               <h4 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">{skill.name}</h4>
-              <p class="mt-3 text-muted-foreground text-sm leading-relaxed">
+              
+              <p class="mt-3 text-muted-foreground text-sm leading-relaxed text-justify hyphens-auto">
                 {skill.desc}
               </p>
           </div>

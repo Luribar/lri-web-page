@@ -27,7 +27,7 @@
     type?: 'physical' | 'online';
   }
 
-  // --- DATA ---
+  // --- DATA (Latest First) ---
   const DATA: Record<Category, JourneyItem[]> = {
     work: [
       { 
@@ -135,17 +135,6 @@
     ],
     education: [
       { 
-        id: 'e1', 
-        role: 'MSc. Geo Information Science', 
-        org: 'Wageningen University', 
-        loc: 'Wageningen, NL', 
-        coords: [5.66, 51.96], 
-        year: '2022', 
-        description: 'Mastered remote sensing, ML/DL, and Ecohydrology. Thesis: Assimilating LAI & canopy nitrogen into WOFOST via Ensemble Kalman Filter.',
-        images: [{ url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400' }],
-        type: 'physical' 
-      },
-      { 
         id: 'e2', 
         role: 'Processing Geospatial Data', 
         org: 'OpenGeoHub Foundation', 
@@ -154,6 +143,17 @@
         year: '2023', 
         description: 'Summer school focused on processing and visualizing large-scale geospatial datasets.',
         images: [{ url: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400' }],
+        type: 'physical' 
+      },
+      { 
+        id: 'e1', 
+        role: 'MSc. Geo Information Science', 
+        org: 'Wageningen University', 
+        loc: 'Wageningen, NL', 
+        coords: [5.66, 51.96], 
+        year: '2022', 
+        description: 'Mastered remote sensing, ML/DL, and Ecohydrology. Thesis: Assimilating LAI & canopy nitrogen into WOFOST via Ensemble Kalman Filter.',
+        images: [{ url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400' }],
         type: 'physical' 
       },
       { 
@@ -226,10 +226,7 @@
 
     map.on('style.load', () => {
       if (!map) return;
-      
-      // Removed the fog effect, returning to the standard container style
       map.setFog(null);
-
       updateMapData();
     });
 
@@ -433,10 +430,10 @@
   }
 </script>
 
-<section id="journey" class="relative w-full border-t border-border bg-background py-24 overflow-hidden">
-  <div class="mx-auto max-w-7xl px-6 md:px-12">
+<section id="journey" class="relative w-full border-t border-border bg-background py-16 md:py-24 overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 md:px-12">
 
-    <header class="mb-12">
+    <header class="mb-8 md:mb-12">
       <span class="font-mono text-xs font-bold tracking-[0.3em] text-primary uppercase">
         03 // Timeline
       </span>
@@ -444,10 +441,10 @@
         Trajectory.
       </h2>
 
-      <div class="mt-6 flex items-center gap-3">
+      <div class="mt-6 flex flex-wrap items-center gap-3">
         <div class="flex items-center gap-1 rounded-full border border-border bg-muted/30 p-1">
           <button
-            class="rounded-full px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all
+            class="rounded-full px-5 py-2 text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all
             {activeCategory === 'work'
               ? 'bg-primary text-primary-foreground shadow-sm'
               : 'text-muted-foreground hover:text-foreground'}"
@@ -456,7 +453,7 @@
             Work
           </button>
           <button
-            class="rounded-full px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all
+            class="rounded-full px-5 py-2 text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all
             {activeCategory === 'education'
               ? 'bg-primary text-primary-foreground shadow-sm'
               : 'text-muted-foreground hover:text-foreground'}"
@@ -467,7 +464,7 @@
         </div>
 
         <button
-          class="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-mono uppercase tracking-wider transition-all border border-border bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50"
+          class="flex items-center gap-2 rounded-full px-4 py-2 text-[10px] md:text-xs font-mono uppercase tracking-wider transition-all border border-border bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50"
           on:click={resetGlobe}
         >
           🌍 Reset Globe
@@ -475,98 +472,98 @@
       </div>
     </header>
 
-    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-start">
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-12 items-start relative">
 
-      <div class="flex flex-col space-y-4 order-2 lg:order-1 h-[75vh] overflow-y-auto pr-4 custom-scrollbar">
+      <div class="lg:col-span-6 flex flex-col space-y-4 order-2 lg:order-1 z-20">
         {#each DATA[activeCategory] as item}
-          <button
-            class="group relative flex w-full flex-col items-start gap-2 rounded-xl border p-6 text-left transition-all duration-300 flex-shrink-0
+          <div class="group relative flex w-full flex-col items-start gap-2 rounded-xl border p-5 md:p-6 text-left transition-all duration-300
             {activeId === item.id
-              ? 'border-primary bg-primary/5 translate-x-2 shadow-[0_0_15px_rgba(var(--primary),0.1)]'
-              : 'border-border/50 bg-transparent hover:border-primary/30 hover:bg-muted/30'}"
-            on:click={() => handleView(item)}
-          >
-            <div class="flex w-full items-center justify-between">
-              <span class="font-mono text-xs font-bold text-primary tracking-wider">
-                {item.year}
-              </span>
-              {#if item.type === 'online'}
-                <span class="text-[10px] uppercase border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 rounded-full text-purple-400 font-semibold tracking-wider">
-                  Remote / Online
+              ? 'border-primary bg-primary/5 shadow-[0_0_15px_rgba(var(--primary),0.1)]'
+              : 'border-border/50 bg-background hover:border-primary/30 hover:bg-muted/30'}">
+            
+            <div 
+              class="w-full cursor-pointer focus:outline-none" 
+              role="button" 
+              tabindex="0" 
+              on:click={() => handleView(item)}
+              on:keydown={(e) => e.key === 'Enter' && handleView(item)}
+            >
+              <div class="flex w-full items-center justify-between mb-1">
+                <span class="font-mono text-xs font-bold text-primary tracking-wider">
+                  {item.year}
                 </span>
-              {/if}
+                {#if item.type === 'online'}
+                  <span class="text-[9px] md:text-[10px] uppercase border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 rounded-full text-purple-400 font-semibold tracking-wider">
+                    Remote / Online
+                  </span>
+                {/if}
+              </div>
+
+              <h3 class="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                {item.role}
+              </h3>
+              <p class="font-mono text-[10px] md:text-xs uppercase tracking-wide text-muted-foreground mt-1">
+                {item.org} // {item.loc}
+              </p>
             </div>
 
-            <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-              {item.role}
-            </h3>
-            <p class="font-mono text-xs uppercase tracking-wide text-muted-foreground">
-              {item.org} // {item.loc}
-            </p>
-
             {#if activeId === item.id}
-              <div class="mt-4 h-[1px] w-12 bg-primary/50"></div>
-              <p class="mt-2 text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-left-2">
-                {item.description}
-              </p>
-            {/if}
-          </button>
-        {/each}
-        
-        <div class="h-4 w-full flex-shrink-0"></div>
-      </div>
+              <div class="w-full mt-2 animate-in fade-in slide-in-from-top-2">
+                <div class="my-3 h-[1px] w-12 bg-primary/50"></div>
+                <p class="text-sm text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
 
-      <div class="flex flex-col gap-4 h-[75vh] w-full order-1 lg:order-2">
-        
-        <div class="relative flex-1 w-full rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-background transition-all duration-300 min-h-[40vh]">
-          <div bind:this={mapContainer} class="absolute inset-0 h-full w-full"></div>
-          <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_60px_rgba(0,0,0,0.4)] z-10"></div>
-        </div>
+                {#if item.images && item.images.length > 0}
+                  <div class="mt-5 w-full flex flex-row gap-4 overflow-x-auto custom-scrollbar-horizontal pb-3">
+                    {#each item.images as imgObj, idx}
+                      <div class="w-44 md:w-56 flex-shrink-0 p-2 md:p-3 rounded-xl border border-border bg-muted/20">
+                        <button 
+                          class="w-full h-24 md:h-28 mb-2 md:mb-3 rounded-lg overflow-hidden relative group/img block focus:outline-none 
+                          {imgObj.coords ? 'cursor-pointer hover:ring-2 hover:ring-primary ring-offset-2 ring-offset-background transition-all' : 'cursor-default'}"
+                          on:click|stopPropagation={() => imgObj.coords && zoomToSubLocation(imgObj.coords)}
+                        >
+                          <img 
+                            src={imgObj.url} 
+                            alt="{item.role} - Image {idx + 1}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+                          />
+                          {#if imgObj.coords}
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                              <span class="text-[9px] md:text-[10px] font-mono font-bold text-white uppercase tracking-wider bg-black/60 px-2 py-1 rounded">
+                                Zoom To Map
+                              </span>
+                            </div>
+                          {/if}
+                        </button>
 
-        {#if activeItem && activeItem.images}
-          <div class="w-full flex flex-row gap-4 overflow-x-auto custom-scrollbar-horizontal pb-2 flex-shrink-0 animate-in slide-in-from-bottom-4 fade-in">
-            {#each activeItem.images as imgObj, idx}
-              <div class="w-56 flex-shrink-0 p-3 rounded-xl border border-border bg-muted/20 transition-all duration-300 hover:bg-muted/40">
-                <button 
-                  class="w-full h-28 mb-3 rounded-lg overflow-hidden relative group block focus:outline-none 
-                  {imgObj.coords ? 'cursor-pointer hover:ring-2 hover:ring-primary ring-offset-2 ring-offset-background transition-all' : 'cursor-default'}"
-                  on:click={() => imgObj.coords && zoomToSubLocation(imgObj.coords)}
-                >
-                  <img 
-                    src={imgObj.url} 
-                    alt="{activeItem.role} - Image {idx + 1}"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {#if imgObj.coords}
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span class="text-[10px] font-mono font-bold text-white uppercase tracking-wider bg-black/60 px-2 py-1 rounded">
-                        Zoom To Map
-                      </span>
-                    </div>
-                  {/if}
-                </button>
-
-                <h4 class="text-sm font-bold text-foreground mb-1 leading-tight truncate">
-                  {imgObj.locName ? imgObj.locName : activeItem.role}
-                </h4>
-                
-                <div class="flex flex-col gap-1 pt-2 mt-2 border-t border-border/50">
-                  <div class="flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-                    <span class="truncate pr-2">📍 {imgObj.locName ? imgObj.locName : activeItem.loc}</span>
+                        <h4 class="text-xs md:text-sm font-bold text-foreground mb-1 leading-tight truncate">
+                          {imgObj.locName ? imgObj.locName : item.role}
+                        </h4>
+                        
+                        {#if item.type !== 'online' && idx === 0}
+                          <div class="flex items-center justify-between text-[9px] md:text-[10px] font-mono text-muted-foreground/60 border-t border-border/50 pt-2 mt-2">
+                            <span>LAT {(imgObj.coords ? imgObj.coords[1] : item.coords[1]).toFixed(2)}°</span>
+                            <span>LNG {(imgObj.coords ? imgObj.coords[0] : item.coords[0]).toFixed(2)}°</span>
+                          </div>
+                        {/if}
+                      </div>
+                    {/each}
                   </div>
-                  {#if activeItem.type !== 'online' && idx === 0}
-                    <div class="text-[9px] font-mono text-muted-foreground/60 flex justify-between">
-                      <span>LAT {(imgObj.coords ? imgObj.coords[1] : activeItem.coords[1]).toFixed(2)}°</span>
-                      <span>LNG {(imgObj.coords ? imgObj.coords[0] : activeItem.coords[0]).toFixed(2)}°</span>
-                    </div>
-                  {/if}
-                </div>
+                {/if}
               </div>
-            {/each}
+            {/if}
           </div>
-        {/if}
-
+        {/each}
       </div>
+
+      <div class="lg:col-span-6 order-1 lg:order-2 lg:sticky lg:top-24 z-10">
+        <div class="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-background transition-all duration-300 h-[35vh] lg:h-[70vh]">
+          <div bind:this={mapContainer} class="absolute inset-0 h-full w-full"></div>
+          <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] md:shadow-[inset_0_0_60px_rgba(0,0,0,0.4)] z-10"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -574,21 +571,6 @@
 <style>
   :global(.mapboxgl-canvas) {
     outline: none;
-  }
-
-  /* CUSTOM SCROLLBAR FOR LEFT PANEL */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--primary), 0.2);
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(var(--primary), 0.5);
   }
 
   /* CUSTOM SCROLLBAR FOR HORIZONTAL DOCK */
