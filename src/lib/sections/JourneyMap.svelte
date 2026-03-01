@@ -38,7 +38,7 @@
         coords: [4.47, 51.92], 
         year: '2025', 
         description: 'Writing and maintaining Python ELT data pipelines, data modeling with dbt, and orchestrating spatial weather data workflows on GCP.',
-        images: [{ url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400' }],
+        images: [{ url: '/images/Bunge-logo.webp' }],
         type: 'physical' 
       },
       { 
@@ -49,7 +49,7 @@
         coords: [4.47, 51.92], 
         year: '2024', 
         description: 'Developed transformations using Snowflake, SQL, and dbt. Built visualizations in Tableau while mastering Agile, Python, and AWS.',
-        images: [{ url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400' }],
+        images: [{ url: '/images/viterra_logo.webp' }],
         type: 'physical' 
       },
       { 
@@ -60,7 +60,7 @@
         coords: [4.47, 51.92], 
         year: '2024', 
         description: 'Built a Python/Docker pipeline using WOFOST for Canola yield forecasting. Assimilated MODIS LAI data using the Ensemble Kalman Filter.',
-        images: [{ url: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400' }],
+        images: [{ url: '/images/viterra_logo.webp' }],
         type: 'physical' 
       },
       { 
@@ -71,22 +71,33 @@
         coords: [5.66, 51.96], 
         year: '2023', 
         description: 'Re-labeled remote sensing imagery to support the development of a highly accurate cloud mask product.',
-        images: [{ url: 'https://images.unsplash.com/photo-1534081333815-ae5019106622?w=400' }],
+        images: [{ url: '/images/eleaf_logo.webp' }],
         type: 'online' 
       },
       { 
         id: 'w5', 
-        role: 'GIS Analyst', 
+        role: 'Ecohydrological Modeler', 
         org: 'FONDECYT (Catchment Memory)', 
         loc: 'Santiago, CL', 
         coords: [-70.66, -33.44], 
         year: '2021', 
-        description: 'Assimilated remote sensing LAI into SWAT+ models and automated Sentinel-2 biophysical variable retrieval using R and ESA-SNAP.',
-        images: [{ url: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400' }],
+        description: 'Assimilated remote sensing LAI into SWAT+ models to evaluate ecohydrological catchment responses.',
+        images: [{ url: '/images/cauquenes_lai.webp' }, { url: '/images/cauquenes_lai_2.webp' }],
         type: 'physical' 
       },
       { 
         id: 'w6', 
+        role: 'GIS & Remote Sensing Analyst', 
+        org: 'FONDECYT', 
+        loc: 'Santiago, CL', 
+        coords: [-70.66, -33.44], 
+        year: '2021', 
+        description: 'Automated Sentinel-2 biophysical variable retrieval using R and ESA-SNAP for large-scale spatial modeling.',
+        images: [{ url: '/images/farellones_soil_moisture.webp' }, { url: '/images/cauquenes_soil_moisture.webp' }],
+        type: 'physical' 
+      },
+      { 
+        id: 'w7', 
         role: 'Research Assistant', 
         org: 'PCI CONICYT & FONDECYT', 
         loc: 'Chile (Multiple Locations)', 
@@ -95,76 +106,76 @@
         description: 'Executed field campaigns across Chilean catchments. Collected tree rings, soil samples, and LAI measurements. Calibrated rain gauges and visualized sensor time-series data.',
         images: [
           { 
-            url: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400', 
+            url: '/images/soil_sampling.webp', 
             coords: [-72.35, -35.96], 
             locName: 'Cauquenes',
             story: 'Installed automated rain gauges to monitor dryland hydrological responses.'
           },
           { 
-            url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400', 
+            url: '/images/farellones/rain_gauge.webp', 
             coords: [-70.31, -33.35], 
             locName: 'Farellones',
-            story: 'High-altitude field campaign collecting soil samples and snowmelt data.'
+            story: 'High-altitude field campaign collecting soil samples and monitoring rainfall.'
           },
           { 
-            url: 'https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?w=400', 
+            url: '/images/petorca_soil_sampling.webp', 
             coords: [-70.93, -32.25], 
             locName: 'Petorca',
-            story: 'Assessed prolonged drought impacts and retrieved tree ring cores.'
+            story: 'Collecting soil samples.'
           },
           { 
-            url: 'https://images.unsplash.com/photo-1596422846543-74c6b610d486?w=400', 
+            url: '/images/trancura_landscape.webp', 
             coords: [-71.97, -39.27], 
-            locName: 'Pucón',
-            story: 'Measured Leaf Area Index (LAI) in dense temperate rainforest catchments.'
+            locName: 'Trancura',
+            story: 'Soil sampling, rain gauge deployment and soil moisture monitoring.'
           }
         ],
         type: 'physical' 
       },
       { 
-        id: 'w7', 
+        id: 'w8', 
         role: 'Data Collection Intern', 
         org: 'ChileOliva', 
         loc: 'Santiago, CL', 
         coords: [-70.66, -33.44], 
         year: '2019', 
         description: 'Collected drone point clouds and tree architecture parameters to feed a Machine Learning olive oil yield prediction model.',
-        images: [{ url: 'https://images.unsplash.com/photo-1560241072-4bc6df9012a6?w=400' }],
+        images: [{ url: '/images/data_collection_intern_1.webp' }, { url: '/images/data_collection_intern_3.webp' }, { url: '/images/data_collection_intern_3.webp' }],
         type: 'physical' 
       }
     ],
     education: [
-      { 
-        id: 'e2', 
-        role: 'Processing Geospatial Data', 
-        org: 'OpenGeoHub Foundation', 
-        loc: 'Poznań, PL', 
-        coords: [16.91, 52.40], 
-        year: '2023', 
-        description: 'Summer school focused on processing and visualizing large-scale geospatial datasets.',
-        images: [{ url: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400' }],
-        type: 'physical' 
-      },
       { 
         id: 'e1', 
         role: 'MSc. Geo Information Science', 
         org: 'Wageningen University', 
         loc: 'Wageningen, NL', 
         coords: [5.66, 51.96], 
-        year: '2022', 
+        year: '2024', 
         description: 'Mastered remote sensing, ML/DL, and Ecohydrology. Thesis: Assimilating LAI & canopy nitrogen into WOFOST via Ensemble Kalman Filter.',
-        images: [{ url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400' }],
+        images: [{ url: '/images/msc_wur.webp' }, { url: '/images/sensor_lidar.webp' }],
+        type: 'physical' 
+      },
+      { 
+        id: 'e2', 
+        role: 'Summer School: Processing and visualizing large geospatial data', 
+        org: 'OpenGeoHub Foundation', 
+        loc: 'Poznań, PL', 
+        coords: [16.91, 52.40], 
+        year: '2023', 
+        description: 'Summer school focused on processing and visualizing large-scale geospatial datasets.',
+        images: [{ url: '/images/summer_school_poznan.webp' }],
         type: 'physical' 
       },
       { 
         id: 'e3', 
-        role: 'Remote Sensing Observations', 
+        role: 'Summer School: Remote sensing observations for the monitoring of water and carbon cycles', 
         org: 'CESBIO', 
         loc: 'Toulouse, FR (Online)', 
         coords: [1.47, 43.56], 
         year: '2021', 
         description: 'Summer school covering water and carbon cycle monitoring over eco-agro-systems.',
-        images: [{ url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400' }],
+        images: [{ url: '/images/Logo_cesbio.webp' }],
         type: 'online' 
       },
       { 
@@ -175,7 +186,7 @@
         coords: [-71.61, -33.04], 
         year: '2020', 
         description: 'Spatial analysis and interactive web mapping utilizing R and Google Earth Engine.',
-        images: [{ url: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400' }],
+        images: [{ url: '/images/Logo_PUCV.webp' }],
         type: 'online' 
       },
       { 
@@ -184,9 +195,9 @@
         org: 'Universidad de Chile', 
         loc: 'Santiago, CL', 
         coords: [-70.66, -33.44], 
-        year: '2014', 
+        year: '2020', 
         description: 'Specialized in soil physics, GIS, and agronomy. Thesis: Mapped avocado crop coefficients using Sentinel-2 and HYDRUS-1D.',
-        images: [{ url: 'https://images.unsplash.com/photo-1530836369250-ef71a3f5e439?w=400' }],
+        images: [{ url: '/images/bsc_lai.webp'}, { url: '/images/soil_profile_hydrus.webp'}],
         type: 'physical' 
       }
     ]
@@ -517,16 +528,16 @@
                 {#if item.images && item.images.length > 0}
                   <div class="mt-5 w-full flex flex-row gap-4 overflow-x-auto custom-scrollbar-horizontal pb-3">
                     {#each item.images as imgObj, idx}
-                      <div class="w-44 md:w-56 flex-shrink-0 p-2 md:p-3 rounded-xl border border-border bg-muted/20">
+                      <div class="w-48 md:w-60 flex-shrink-0 p-2 md:p-3 rounded-xl border border-border bg-muted/20">
                         <button 
-                          class="w-full h-24 md:h-28 mb-2 md:mb-3 rounded-lg overflow-hidden relative group/img block focus:outline-none 
+                          class="w-full h-32 md:h-36 mb-2 md:mb-3 rounded-lg overflow-hidden relative group/img block focus:outline-none bg-black/20
                           {imgObj.coords ? 'cursor-pointer hover:ring-2 hover:ring-primary ring-offset-2 ring-offset-background transition-all' : 'cursor-default'}"
                           on:click|stopPropagation={() => imgObj.coords && zoomToSubLocation(imgObj.coords)}
                         >
                           <img 
                             src={imgObj.url} 
                             alt="{item.role} - Image {idx + 1}"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+                            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover/img:scale-110"
                           />
                           {#if imgObj.coords}
                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
