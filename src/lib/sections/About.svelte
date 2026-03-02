@@ -25,7 +25,7 @@
                     
                     <div class="relative aspect-square w-48 md:w-64 overflow-hidden rounded-2xl border border-border bg-muted shadow-2xl ring-1 ring-white/10">
                         <img 
-                            src="src/lib/assets/images/about_me.jpg" 
+                            src="/images/about_me.webp" 
                             alt="Lucas Rivero Iribarne" 
                             class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />

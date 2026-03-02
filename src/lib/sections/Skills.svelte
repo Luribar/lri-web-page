@@ -34,7 +34,8 @@
         { name: 'PostgreSQL', url: 'https://cdn.simpleicons.org/postgresql/4169E1' },
         { name: 'GCP', url: 'https://cdn.simpleicons.org/googlecloud/4285F4' },
         { name: 'Linux', url: 'https://api.iconify.design/logos:linux-tux.svg' },
-        { name: 'Docker', url: 'https://cdn.simpleicons.org/docker/2496ED' }
+        { name: 'Docker', url: 'https://cdn.simpleicons.org/docker/2496ED' },
+        { name: 'Git', url: 'https://cdn.simpleicons.org/git/F05032' }
       ]
     },
     { 
@@ -65,7 +66,7 @@
     },
     { 
       name: 'Ecohydrological Modeling', 
-      desc: 'I have used water flow models to simulate water and carbon balance at different scales, such soil profile level (HYDRUS 1D), field level (SWAP and WOFOST), hydrological catchment (SWAT+) and regional level (WOFOST/Remote Sensing/GIS).',
+      desc: 'I have used water flow models to simulate water and carbon balance at different scales, such as soil profile level (HYDRUS 1D), field level (SWAP and WOFOST), hydrological catchment (SWAT+) and regional level (WOFOST/Remote Sensing/GIS).',
       icon: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z', 
       spanClass: 'col-span-1 md:col-span-2 lg:col-span-2', 
       stack: [

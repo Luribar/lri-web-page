@@ -44,8 +44,8 @@
     </div>
     
     <div class="flex gap-8 items-center">
-      <a href="https://github.com" target="_blank" class="text-muted-foreground hover:text-primary transition-colors text-[10px] font-black uppercase tracking-[0.2em]">Github</a>
-      <a href="https://linkedin.com" target="_blank" class="text-muted-foreground hover:text-primary transition-colors text-[10px] font-black uppercase tracking-[0.2em]">LinkedIn</a>
+      <a href="https://github.com/Luribar?tab=repositories" target="_blank" class="text-muted-foreground hover:text-primary transition-colors text-[10px] font-black uppercase tracking-[0.2em]">Github</a>
+      <a href="https://www.linkedin.com/in/lucas-rivero-iribarne-980bb815a/" target="_blank" class="text-muted-foreground hover:text-primary transition-colors text-[10px] font-black uppercase tracking-[0.2em]">LinkedIn</a>
       
       <button 
         onclick={() => isContactOpen.set(true)} 

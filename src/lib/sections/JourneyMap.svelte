@@ -27,6 +27,14 @@
     type?: 'physical' | 'online';
   }
 
+  // --- CATCHMENT DATA DEFINITION ---
+  const CATCHMENTS = [
+    { id: 'cauquenes', url: '/data/cauquenes.geojson', color: '#3b82f6' }, // Blue
+    { id: 'farellones', url: '/data/farellones.geojson', color: '#a855f7' }, // Purple
+    { id: 'petorca', url: '/data/petorca.geojson', color: '#ef4444' }, // Red
+    { id: 'trancura', url: '/data/trancura.geojson', color: '#10b981' }  // Green
+  ];
+
   // --- DATA (Latest First) ---
   const DATA: Record<Category, JourneyItem[]> = {
     work: [
@@ -38,7 +46,10 @@
         coords: [4.47, 51.92], 
         year: '2025', 
         description: 'Writing and maintaining Python ELT data pipelines, data modeling with dbt, and orchestrating spatial weather data workflows on GCP.',
-        images: [{ url: '/images/Bunge-logo.webp' }],
+        images: [{ 
+            url: '/images/Bunge-logo.webp',
+            story: 'Working at the Rotterdam office on global data pipelines.' 
+        }],
         type: 'physical' 
       },
       { 
@@ -49,7 +60,10 @@
         coords: [4.47, 51.92], 
         year: '2024', 
         description: 'Developed transformations using Snowflake, SQL, and dbt. Built visualizations in Tableau while mastering Agile, Python, and AWS.',
-        images: [{ url: '/images/viterra_logo.webp' }],
+        images: [{ 
+            url: '/images/viterra_logo.webp',
+            story: 'Transitioned into data engineering and cloud architecture.' 
+        }],
         type: 'physical' 
       },
       { 
@@ -76,43 +90,81 @@
       },
       { 
         id: 'w5', 
-        role: 'Ecohydrological Modeler', 
-        org: 'FONDECYT (Catchment Memory)', 
-        loc: 'Santiago, CL', 
+        role: 'Field work and Research Assitant', 
+        org: 'FONDECYT', 
+        loc: 'Temuco, CL', 
         coords: [-70.66, -33.44], 
         year: '2021', 
-        description: 'Assimilated remote sensing LAI into SWAT+ models to evaluate ecohydrological catchment responses.',
-        images: [{ url: '/images/cauquenes_lai.webp' }, { url: '/images/cauquenes_lai_2.webp' }],
+        description: 'Project Title: The catchment memory: understanding how hydrological extremes are modulated by antecedent soil moisture conditions in a warmer climate. \n Deployed soil moisture and rain gauges instruments. Assimilated remote sensing LAI into SWAT+ models to evaluate ecohydrological catchment responses.',
+        images: [
+          { 
+            url: '/images/data_collection.webp', 
+            coords: [-72.35, -35.96], 
+            locName: 'Cauquenes',
+            story: 'Fetching soil moisture data in a forest ecosystem.'
+          },
+          { 
+            url: '/images/cauquenes_lai.webp', 
+            coords: [-72.35, -35.96], 
+            locName: 'Cauquenes',
+            story: 'Measuring Leaf Area Index at sunset to avoid shadows and direct radiation.'
+          },
+        ],
         type: 'physical' 
       },
       { 
         id: 'w6', 
-        role: 'GIS & Remote Sensing Analyst', 
+        role: 'Research Assistant and GIS Analyst', 
         org: 'FONDECYT', 
         loc: 'Santiago, CL', 
         coords: [-70.66, -33.44], 
         year: '2021', 
-        description: 'Automated Sentinel-2 biophysical variable retrieval using R and ESA-SNAP for large-scale spatial modeling.',
-        images: [{ url: '/images/farellones_soil_moisture.webp' }, { url: '/images/cauquenes_soil_moisture.webp' }],
+        description: 'Project Title: Improving forest water yield and productivity quantification at the catchment scale by mapping root depth and eco-physiological thresholds with remote sensing and water transfer modeling. \n Automated Sentinel-2 biophysical variable retrieval using R and ESA-SNAP for large-scale spatial modeling.',
+        images: [
+          { 
+            url: '/images/cauquenes_soil_moisture.webp', 
+            coords: [-72.35, -35.96], 
+            locName: 'Cauquenes',
+            story: 'Fetching soil moisture data from vineyard.'
+          },
+          { 
+            url: '/images/cauquenes_lai.webp', 
+            coords: [-72.35, -35.96], 
+            locName: 'Cauquenes',
+            story: 'Measuring leaf area index to parametrize physical models.'
+          },
+          { 
+            url: '/images/farellones_soil_moisture.webp', 
+            coords: [-72.35, -35.96], 
+            locName: 'Farellones',
+            story: 'Deploying soil moisture sensors and taking soil samples.'
+          },
+        ],
         type: 'physical' 
       },
       { 
         id: 'w7', 
         role: 'Research Assistant', 
-        org: 'PCI CONICYT & FONDECYT', 
+        org: 'FONDECYT', 
         loc: 'Chile (Multiple Locations)', 
         coords: [-70.66, -33.44], 
         year: '2019', 
-        description: 'Executed field campaigns across Chilean catchments. Collected tree rings, soil samples, and LAI measurements. Calibrated rain gauges and visualized sensor time-series data.',
+        description: 'Project Title: Assessing spatio-temporal impacts of global change on water and biomass production processes at catchment scale: a synergistic approach based on remote sensing and coupled hydrological models to improve sustainable management of forest ecosystems. \n Executed field campaigns across Chilean catchments. Collected tree rings, soil samples, and LAI measurements. Calibrated rain gauges and visualized sensor time-series data.',
         images: [
           { 
             url: '/images/soil_sampling.webp', 
             coords: [-72.35, -35.96], 
             locName: 'Cauquenes',
-            story: 'Installed automated rain gauges to monitor dryland hydrological responses.'
+            story: 'Taking soil samples to get physical properties and run ecohydrological models.'
           },
           { 
-            url: '/images/farellones/rain_gauge.webp', 
+            url: '/images/sap_flow.webp', 
+            coords: [-72.35, -35.96], 
+            locName: 'Cauquenes',
+            story: 'Deploying sap flow.'
+          },
+          { 
+            url: '/images/farellones_rain_gauge.webp', 
             coords: [-70.31, -33.35], 
             locName: 'Farellones',
             story: 'High-altitude field campaign collecting soil samples and monitoring rainfall.'
@@ -121,11 +173,11 @@
             url: '/images/petorca_soil_sampling.webp', 
             coords: [-70.93, -32.25], 
             locName: 'Petorca',
-            story: 'Collecting soil samples.'
+            story: 'Collecting soil samples to train digital soil mapping models.'
           },
           { 
             url: '/images/trancura_landscape.webp', 
-            coords: [-71.97, -39.27], 
+            coords: [-71.58, -39.35], 
             locName: 'Trancura',
             story: 'Soil sampling, rain gauge deployment and soil moisture monitoring.'
           }
@@ -140,7 +192,22 @@
         coords: [-70.66, -33.44], 
         year: '2019', 
         description: 'Collected drone point clouds and tree architecture parameters to feed a Machine Learning olive oil yield prediction model.',
-        images: [{ url: '/images/data_collection_intern_1.webp' }, { url: '/images/data_collection_intern_3.webp' }, { url: '/images/data_collection_intern_3.webp' }],
+        images: [
+          { 
+            url: '/images/data_collection_intern_1.webp', 
+            locName: 'Olive Orchard',
+            story: 'Measuring tree height, width, and volume.'
+          },
+          { 
+            url: '/images/data_collection_intern_2.webp', 
+            locName: 'Olive Bins',
+            story: 'Measured olive yield.'
+          },
+          { 
+            url: '/images/data_collection_intern_3.webp', 
+            locName: 'Olive fruits',
+            story: 'Measuring branch length and fruit count.'
+          }],
         type: 'physical' 
       }
     ],
@@ -197,7 +264,18 @@
         coords: [-70.66, -33.44], 
         year: '2020', 
         description: 'Specialized in soil physics, GIS, and agronomy. Thesis: Mapped avocado crop coefficients using Sentinel-2 and HYDRUS-1D.',
-        images: [{ url: '/images/bsc_lai.webp'}, { url: '/images/soil_profile_hydrus.webp'}],
+        images: [
+          { 
+            url: '/images/bsc_lai.webp', 
+            locName: 'Measuring LAI',
+            story: 'In situ data collection to parametrize HYDRUS 1D.'
+          },
+          { 
+            url: '/images/soil_profile_hydrus.webp', 
+            locName: 'Digital Soil Profile',
+            story: 'Digital profile used to model water flow.'
+          }
+        ],
         type: 'physical' 
       }
     ]
@@ -217,7 +295,6 @@
   let markers: mapboxgl.Marker[] = [];
   let frameId: number;
 
-  // --- LIFECYCLE ---
   onMount(() => {
     mapState.hideMap();
     if (!PUBLIC_MAPBOX_TOKEN) return;
@@ -238,6 +315,10 @@
     map.on('style.load', () => {
       if (!map) return;
       map.setFog(null);
+      
+      // NEW: Load the catchment boundaries
+      loadCatchments();
+      
       updateMapData();
     });
 
@@ -262,7 +343,44 @@
     map?.remove();
   });
 
-  // --- UI LOGIC ---
+  // --- NEW LOGIC: Load GeoJSON Catchments ---
+  function loadCatchments() {
+    if (!map) return;
+
+    CATCHMENTS.forEach(catchment => {
+      // Add the GeoJSON source from the static folder
+      map!.addSource(catchment.id, {
+        type: 'geojson',
+        data: catchment.url
+      });
+
+      // Add Polygon Fill (Only visible when zoom > 5.5)
+      map!.addLayer({
+        id: `${catchment.id}-fill`,
+        type: 'fill',
+        source: catchment.id,
+        minzoom: 5.5, // Hides it on the globe view
+        paint: {
+          'fill-color': catchment.color,
+          'fill-opacity': 0.15 // Subtle background color
+        }
+      });
+
+      // Add Polygon Outline (Only visible when zoom > 5.5)
+      map!.addLayer({
+        id: `${catchment.id}-line`,
+        type: 'line',
+        source: catchment.id,
+        minzoom: 5.5,
+        paint: {
+          'line-color': catchment.color,
+          'line-width': 2,
+          'line-dasharray': [2, 2] // Dashed border looks technical and cool
+        }
+      });
+    });
+  }
+
   function toggleCategory(cat: Category) {
     activeCategory = cat;
     resetGlobe();
@@ -289,7 +407,7 @@
 
     map.flyTo({
       center: coords,
-      zoom: 6.5, 
+      zoom: 6.5, // Because this is > 5.5, the catchments will beautifully fade in!
       essential: true,
       speed: 1.2,
       curve: 1.5
@@ -303,14 +421,13 @@
 
     map.flyTo({
       center: [-20, 20],
-      zoom: 1.5,
+      zoom: 1.5, // Catchments disappear automatically here!
       pitch: 0,
       speed: 1.0,
       curve: 1.5
     });
   }
 
-  // --- MAP LOGIC ---
   function updateMapData() {
     if (!map) return;
 
@@ -325,7 +442,6 @@
     const items = DATA[activeCategory];
     const physicalItems = items.filter(i => i.type === 'physical');
 
-    // 1. Draw main physical route
     if (physicalItems.length > 1) {
       const routeGeoJSON = {
         type: 'Feature',
@@ -350,7 +466,6 @@
       });
     }
 
-    // 2. Draw Sub-routes & Popup Markers
     const subRouteFeatures: any[] = [];
 
     items.forEach(item => {
@@ -425,7 +540,6 @@
       });
     }
 
-    // 3. Draw main markers
     items.forEach(item => {
       const el = document.createElement('div');
       el.className = `marker-dot ${item.type === 'online' ? 'is-online' : 'is-physical'}`;
@@ -485,9 +599,9 @@
 
     <div class="grid gap-8 lg:grid-cols-12 lg:gap-12 items-start relative">
 
-      <div class="lg:col-span-6 flex flex-col space-y-4 order-2 lg:order-1 z-20">
+      <div class="lg:col-span-6 flex flex-col space-y-4 order-2 lg:order-1 z-20 h-auto lg:h-[70vh] overflow-y-auto custom-scrollbar pr-2 lg:pr-4 pb-4">
         {#each DATA[activeCategory] as item}
-          <div class="group relative flex w-full flex-col items-start gap-2 rounded-xl border p-5 md:p-6 text-left transition-all duration-300
+          <div class="group relative flex w-full flex-col items-start gap-2 rounded-xl border p-5 md:p-6 text-left transition-all duration-300 flex-shrink-0
             {activeId === item.id
               ? 'border-primary bg-primary/5 shadow-[0_0_15px_rgba(var(--primary),0.1)]'
               : 'border-border/50 bg-background hover:border-primary/30 hover:bg-muted/30'}">
@@ -528,9 +642,10 @@
                 {#if item.images && item.images.length > 0}
                   <div class="mt-5 w-full flex flex-row gap-4 overflow-x-auto custom-scrollbar-horizontal pb-3">
                     {#each item.images as imgObj, idx}
-                      <div class="w-48 md:w-60 flex-shrink-0 p-2 md:p-3 rounded-xl border border-border bg-muted/20">
+                      <div class="w-72 md:w-[340px] flex-shrink-0 flex flex-row items-center gap-4 p-2 md:p-3 rounded-xl border border-border bg-muted/20">
+                        
                         <button 
-                          class="w-full h-32 md:h-36 mb-2 md:mb-3 rounded-lg overflow-hidden relative group/img block focus:outline-none bg-black/20
+                          class="w-24 h-20 md:w-32 md:h-24 rounded-lg overflow-hidden relative group/img block focus:outline-none bg-black/20 flex-shrink-0
                           {imgObj.coords ? 'cursor-pointer hover:ring-2 hover:ring-primary ring-offset-2 ring-offset-background transition-all' : 'cursor-default'}"
                           on:click|stopPropagation={() => imgObj.coords && zoomToSubLocation(imgObj.coords)}
                         >
@@ -541,23 +656,25 @@
                           />
                           {#if imgObj.coords}
                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                              <span class="text-[9px] md:text-[10px] font-mono font-bold text-white uppercase tracking-wider bg-black/60 px-2 py-1 rounded">
-                                Zoom To Map
+                              <span class="text-[9px] font-mono font-bold text-white uppercase tracking-wider bg-black/60 px-2 py-1 rounded">
+                                Map
                               </span>
                             </div>
                           {/if}
                         </button>
 
-                        <h4 class="text-xs md:text-sm font-bold text-foreground mb-1 leading-tight truncate">
-                          {imgObj.locName ? imgObj.locName : item.role}
-                        </h4>
-                        
-                        {#if item.type !== 'online' && idx === 0}
-                          <div class="flex items-center justify-between text-[9px] md:text-[10px] font-mono text-muted-foreground/60 border-t border-border/50 pt-2 mt-2">
-                            <span>LAT {(imgObj.coords ? imgObj.coords[1] : item.coords[1]).toFixed(2)}°</span>
-                            <span>LNG {(imgObj.coords ? imgObj.coords[0] : item.coords[0]).toFixed(2)}°</span>
-                          </div>
-                        {/if}
+                        <div class="flex flex-col justify-center flex-1 overflow-hidden pr-1">
+                          <h4 class="text-xs md:text-sm font-bold text-foreground leading-tight truncate mb-1">
+                            {imgObj.locName ? imgObj.locName : item.role}
+                          </h4>
+
+                          {#if imgObj.story}
+                            <p class="text-[10px] md:text-[11px] text-muted-foreground leading-snug whitespace-normal line-clamp-3">
+                              {imgObj.story}
+                            </p>
+                          {/if}
+                        </div>
+
                       </div>
                     {/each}
                   </div>
@@ -582,6 +699,21 @@
 <style>
   :global(.mapboxgl-canvas) {
     outline: none;
+  }
+
+  /* CUSTOM SCROLLBAR FOR LEFT PANEL */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--primary), 0.2);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--primary), 0.5);
   }
 
   /* CUSTOM SCROLLBAR FOR HORIZONTAL DOCK */
